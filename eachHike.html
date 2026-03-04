@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Web Components for shared navbar and footer layout -->
+    <script type="module" src="/src/components/site-navbar.js"></script>
+    <script type="module" src="/src/components/site-footer.js"></script>
+    <script type="module" src="/src/app.js"></script>
+    <script type="module" src="/src/eachHike.js"></script>
+</head>
+
+<body>
+    <site-navbar></site-navbar>
+
+    <div class="container p-5">
+        <h1 id="hikeName" class="display-4">Loading Hike...</h1>
+        <hr>
+        <img id="hikeImage" src="" alt="" style="width:100%; max-width:600px; border-radius: 10px;">
+        
+        <div class="mt-4">
+            <p>Welcome back, <span id="name-goes-here">...</span></p>
+            <p>Today's Quote: <span id="quote-goes-here">...</span></p>
+        </div>
+    </div>
+
+    <site-footer></site-footer>
+</body>
+
+</html>
