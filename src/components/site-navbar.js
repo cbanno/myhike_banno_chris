@@ -16,10 +16,12 @@ class SiteNavbar extends HTMLElement {
             <!-- Navbar: single source of truth -->
             <nav class="navbar navbar-expand-lg navbar-light bg-success">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/">
-                        <img src="/images/hiking.png" height="36">
-                        BannoHikes
-                    </a>
+                    
+                        <a class="navbar-brand" id="logoLink" href="">
+                            <img src="/images/hiking.png" height="36">
+                                BannoHikes
+                        </a>
+                    
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -27,7 +29,7 @@ class SiteNavbar extends HTMLElement {
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="/">Home</a>
+                                <a class="nav-link" id="logoLink" href="">Home</a>
                             </li>
                         </ul>
                         <div class="d-flex align-items-center gap-2 ms-lg-2" id="rightControls">
@@ -39,7 +41,6 @@ class SiteNavbar extends HTMLElement {
                                 <!-- populated by JS -->
                             </div>
                         </div>
-
                     </div>
                 </div>
             </nav>
@@ -55,6 +56,7 @@ class SiteNavbar extends HTMLElement {
  // -------------------------------------------------------------
     renderAuthControls() {
         const authControls = this.querySelector('#authControls');
+        const logoLink = this.querySelector('#logoLink');
         const navList = this.querySelector('ul'); // your main nav <ul>
 
   // invisible placeholder to maintain layout
@@ -68,12 +70,13 @@ class SiteNavbar extends HTMLElement {
         if (existingProfile) existingProfile.remove();
 
         if (user) {
+            if (logoLink) logoLink.href = "main.html";
       //     1️⃣ Add Profile item to menu
-        if (navList) {
-            const profileItem = document.createElement('li');
-            profileItem.classList.add('nav-item');
-            profileItem.innerHTML = `<a class="nav-link" id="profileLink" href="/profile.html">Profile</a>`;
-            navList.appendChild(profileItem);
+            if (navList) {
+                const profileItem = document.createElement('li');
+                    profileItem.classList.add('nav-item');
+                    profileItem.innerHTML = `<a class="nav-link" id="profileLink" href="/profile.html">Profile</a>`;
+                navList.appendChild(profileItem);
         }
 
       // 2️⃣ Show logout button
@@ -84,6 +87,7 @@ class SiteNavbar extends HTMLElement {
             signOutBtn?.addEventListener('click', logoutUser);
         } else {
       // Remove Profile if user logs out
+            if (logoLink) logoLink.href = "index.html";
             if (existingProfile) existingProfile.remove();
 
       // Show login button
