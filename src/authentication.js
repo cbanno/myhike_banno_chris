@@ -67,6 +67,7 @@ export async function signupUser(name, email, password) {
     await setDoc(doc(db, "users", user.uid), {
       name: name,
       email: email,
+      password: password,
       country: "Canada", // Default value
       school: "BCIT"     // Default value
     });
