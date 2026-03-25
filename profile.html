@@ -22,7 +22,7 @@
 
     <!-- our own navbar goes here -->
 
-    <main>
+
         <div class="container">
         <h1>User Profile </h1>
         <form>
@@ -47,6 +47,24 @@
             </div>
         </form>
         </div>
+    <main class="container my-4">
+        <h1>Saved Hikes </h1>
+
+        <div class="container">
+            <div id="hikeCardGroup" class="row row-cols-auto"></div>
+        </div>
+
+        <template id="savedCardTemplate">
+            <div class="card py-2 m-2 bg-light" style="width: 16rem;">
+                <img class="card-image card-img-top" src="..." alt="Hike image" />
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text"></p>
+                    <p>Length: <span class="card-length"></span> km</p>
+                    <a class="btn btn-primary read-more" href="#">Read More</a>
+                </div>
+            </div>
+        </template>
     </main>
 
     <!-- our own footer goes here -->

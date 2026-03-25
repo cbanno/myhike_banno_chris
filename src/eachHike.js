@@ -53,20 +53,20 @@ function saveHikeDocumentIDAndRedirect() {
 }
 
 async function populateReviews() {
-  console.log("test");
-  const reviewCardTemplate = document.getElementById("reviewCardTemplate");
-  const reviewCardGroup = document.getElementById("reviewCardGroup");
+    console.log("test");
+    const reviewCardTemplate = document.getElementById("reviewCardTemplate");
+    const reviewCardGroup = document.getElementById("reviewCardGroup");
 
   // Get hike ID from the URL (e.g. ?docID=abc123)
-  const params = new URL(window.location.href);
-  const hikeID = params.searchParams.get("docID");
+    const params = new URL(window.location.href);
+    const hikeID = params.searchParams.get("docID");
 
-  if (!hikeID) {
+    if (!hikeID) {
     console.warn("No hike ID found in URL.");
     return;
-  }
+    }
 
-  try {
+    try {
     // Sub-collection path: hikes/{hikeID}/reviews
     const reviewsRef = collection(db, "hikes", hikeID, "reviews");
 
